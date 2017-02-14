@@ -10,7 +10,7 @@ public class AutoShop extends JFrame {
     JComboBox auto;
     JLabel autoModel, the_number, label, image, information;
     JTextField display;
-    JButton baybuttton;
+    JButton buybutton;
     JPanel content, submit, content2;
 
     public static void main(String[] args) {
@@ -70,10 +70,10 @@ public class AutoShop extends JFrame {
         submit.add(information);
 
         // оздаем и добавляем кнопку "Разместить заказ"
-        baybuttton = new JButton("Разместить заказ");
+        buybutton = new JButton("Разместить заказ");
         Font buttonFont = new Font(Font.MONOSPACED, Font.BOLD, 20);
-        baybuttton.setFont(buttonFont);
-        submit.add(baybuttton);
+        buybutton.setFont(buttonFont);
+        submit.add(buybutton);
 
         // Панель с описанием авто
         content2 = new JPanel(new GridLayout(1, 2, 5, 5));
@@ -98,8 +98,8 @@ public class AutoShop extends JFrame {
         auto.addItemListener(listModel);
 
         // Передача функций в класс BuyButton
-        BuyButton buybutton = new BuyButton(this);
-        baybuttton.addActionListener(buybutton);
+        BuyButton buybutton1 = new BuyButton(this);
+        buybutton.addActionListener(buybutton1);
     }
 }
 

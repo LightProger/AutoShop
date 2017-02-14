@@ -31,25 +31,25 @@ public class BuyButton implements ActionListener{
         Object button = e.getSource();
 
         // Если не выбрана модель автомобиля и количество и нажата кнопка "Купить", выдать сообщение
-        if((parent1.auto.getSelectedIndex() == 0) && (button == parent1.baybuttton)){
+        if((parent1.auto.getSelectedIndex() == 0) && (button == parent1.buybutton)){
             parent1.information.setText(null);
             JOptionPane.showMessageDialog(null, "Выберите модель автомобиля...");
-        }else if((displayValue <= 0) && (button == parent1.baybuttton)){
+        }else if((displayValue <= 0) && (button == parent1.buybutton)){
             parent1.information.setText(null);
             JOptionPane.showMessageDialog(null, "Введите количество...");
 
         }
 
              // Действия при нажатии кнопки "Купить"
-            else if (button == parent1.baybuttton && parent1.auto.getSelectedIndex() == 1) {
+            else if (button == parent1.buybutton && parent1.auto.getSelectedIndex() == 1) {
                 result = (int)displayValue;
                 parent1.information.setText("Ваш заказ оформлен! Вы приобрели автомобиль AUDI Q7 - " + " " + result + " шт.");
                 displayValue = 0;
-            } else if (button == parent1.baybuttton && parent1.auto.getSelectedIndex() == 2) {
+            } else if (button == parent1.buybutton && parent1.auto.getSelectedIndex() == 2) {
                 result = (int)displayValue;
                 parent1.information.setText("Ваш заказ оформлен! Вы приобрели автомобиль BMV X5 - " + " " + result + " шт.");
                 displayValue = 0;
-            } else if (button == parent1.baybuttton && parent1.auto.getSelectedIndex() == 3) {
+            } else if (button == parent1.buybutton && parent1.auto.getSelectedIndex() == 3) {
                 result = (int)displayValue;
                 parent1.information.setText("Ваш заказ оформлен! Вы приобрели автомобиль TOYOTA RAV4 - " + " " + result + " шт.");
                 displayValue = 0;

@@ -18,6 +18,7 @@ public class ListModel implements ItemListener {
 
     @Override
     public void itemStateChanged(ItemEvent e) {
+
             // Добавляем фото автомобилей
             Q7 = (new ImageIcon(getClass().getResource("Q7.png")));
             X5 = (new ImageIcon(getClass().getResource("X5.png")));
