@@ -59,17 +59,17 @@ public class BuyButton extends Exception implements ActionListener {
 
         } catch (Exception e1) {
             // При возникновении ошибок, все обнулить и выдать сообщение
+            parent1.display.setText(null);
             JOptionPane.showMessageDialog(null, "Ошибка! Введите количество!");
         }
-            // Если выбрано больше 3 автомобилей, написать, что столько автомобилей нет в наличии и все обнулить.
-            if (result > 3) try {
-                throw ( new Exception ("Количество"));
-            } catch (Exception e1) {
-                parent1.display.setText(null);
-                parent1.information.setText(null);
-                displayValue = 0;
-                JOptionPane.showMessageDialog(null, "Столько автомобилей, нет в наличии!");
+        // Если выбрано больше 3 автомобилей, написать, что столько автомобилей нет в наличии и все обнулить.
+        if (result > 3) try {
+            throw ( new Exception ("Количество"));
+        } catch (Exception e1) {
+            parent1.display.setText(null);
+            parent1.information.setText(null);
+            displayValue = 0;
+            JOptionPane.showMessageDialog(null, "Столько автомобилей, нет в наличии!");
         }
     }
 }
-

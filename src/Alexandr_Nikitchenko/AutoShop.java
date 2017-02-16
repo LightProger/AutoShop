@@ -100,6 +100,11 @@ public class AutoShop extends JFrame {
         // Передача функций в класс BuyButton
         BuyButton buybutton1 = new BuyButton(this);
         buybutton.addActionListener(buybutton1);
+        
+
+
+
+
     }
 }
 
