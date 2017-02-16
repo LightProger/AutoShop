@@ -15,14 +15,13 @@ public class AutoShop extends JFrame {
 
     public static void main(String[] args) {
         new AutoShop();
-
     }
 
     AutoShop()  {
         super("Автомагазин");
 
         //Задаем размер окна
-        setSize(560, 380);
+        setSize(560, 400);
 
         // Реакция окна на закрытие
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -92,10 +91,6 @@ public class AutoShop extends JFrame {
 
         // Делаем окно видимым
         setVisible(true);
-
-        // Передача функций в класс ListModel
-        ListModel listModel = new ListModel(this);
-        auto.addItemListener(listModel);
 
         // Передача функций в класс BuyButton
         BuyButton buybutton1 = new BuyButton(this);
