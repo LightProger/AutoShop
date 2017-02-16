@@ -4,18 +4,20 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 /**
  * Created by Александр on 14.02.2017.
  */
-public class BuyButton implements ActionListener{
+public class BuyButton extends Exception implements ActionListener {
     AutoShop parent1;
     double displayValue = 0;
     int result = 0;
     BuyButton(AutoShop parent1){
         this.parent1 = parent1;
     }
+
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)  {
 
         //Обработчик ошибок
         try {
@@ -23,41 +25,51 @@ public class BuyButton implements ActionListener{
             // если он не пустой.
             // Восклицательный знак – это оператор отрицания
             String dispFieldText = parent1.display.getText();
-        if (!"".equals(dispFieldText)) {
-            displayValue = Double.parseDouble(dispFieldText);
-        }
+            if (!"".equals(dispFieldText)) {
+                displayValue = Double.parseDouble(dispFieldText);
+            }
 
-        // Создание объекта-кнопки
-        Object button = e.getSource();
+            // Создание объекта-кнопки
+            Object button = e.getSource();
 
-        // Если не выбрана модель автомобиля и количество и нажата кнопка "Купить", выдать сообщение
-        if((parent1.auto.getSelectedIndex() == 0) && (button == parent1.buybutton)){
-            parent1.information.setText(null);
-            JOptionPane.showMessageDialog(null, "Выберите модель автомобиля...");
-        }else if((displayValue <= 0) && (button == parent1.buybutton)){
-            parent1.information.setText(null);
-            JOptionPane.showMessageDialog(null, "Введите количество...");
+            // Если не выбрана модель автомобиля и количество и нажата кнопка "Купить", выдать сообщение
+            if ((parent1.auto.getSelectedIndex() == 0) && (button == parent1.buybutton)) {
+                parent1.information.setText(null);
+                JOptionPane.showMessageDialog(null, "Выберите модель автомобиля...");
+            } else if ((displayValue <= 0) && (button == parent1.buybutton)) {
+                parent1.information.setText(null);
+                JOptionPane.showMessageDialog(null, "Введите количество...");
 
-        }
+            }
 
-             // Действия при нажатии кнопки "Купить"
+            // Действия при нажатии кнопки "Купить"
             else if (button == parent1.buybutton && parent1.auto.getSelectedIndex() == 1) {
-                result = (int)displayValue;
+                result = (int) displayValue;
                 parent1.information.setText("Ваш заказ оформлен! Вы приобрели автомобиль AUDI Q7 - " + " " + result + " шт.");
                 displayValue = 0;
             } else if (button == parent1.buybutton && parent1.auto.getSelectedIndex() == 2) {
-                result = (int)displayValue;
+                result = (int) displayValue;
                 parent1.information.setText("Ваш заказ оформлен! Вы приобрели автомобиль BMV X5 - " + " " + result + " шт.");
                 displayValue = 0;
             } else if (button == parent1.buybutton && parent1.auto.getSelectedIndex() == 3) {
-                result = (int)displayValue;
+                result = (int) displayValue;
                 parent1.information.setText("Ваш заказ оформлен! Вы приобрели автомобиль TOYOTA RAV4 - " + " " + result + " шт.");
                 displayValue = 0;
             }
-        }catch (Exception e1){
+
+        } catch (Exception e1) {
             // При возникновении ошибок, все обнулить и выдать сообщение
-            parent1.display.setText(null);
             JOptionPane.showMessageDialog(null, "Ошибка! Введите количество!");
+        }
+            // Если выбрано больше 3 автомобилей, написать, что столько автомобилей нет в наличии и все обнулить.
+            if (result > 3) try {
+                throw ( new Exception ("Количество"));
+            } catch (Exception e1) {
+                parent1.display.setText(null);
+                parent1.information.setText(null);
+                displayValue = 0;
+                JOptionPane.showMessageDialog(null, "Столько автомобилей, нет в наличии!");
         }
     }
 }
+
